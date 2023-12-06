@@ -1,6 +1,7 @@
 ## TESTE DE GUI COM JANELA E BOTAO
 
 from tkinter import *
+from tkinter.ttk import Combobox
 
 def clicked():
     lbl.configure(text="você clicou ;)")
@@ -21,5 +22,9 @@ txtfld.place(x=80, y=150)
 
 btn = Button(window, text="me clica por favor", command=clicked)
 btn.pack()
+
+data = ("one", "two", "three", "four")
+cb=Combobox(window, values=data)
+cb.place(x=60, y=170)
 
 window.mainloop()
