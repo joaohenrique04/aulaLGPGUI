@@ -8,7 +8,7 @@ def clicked():
 
 window = Tk()
 window.title("Bem-vindo, NERD B)")
-window.geometry("350x200")
+window.geometry("400x400")
 
 # lbl = Label(window, text="Olá")
 # lbl.pack()
@@ -26,5 +26,10 @@ btn.pack()
 data = ("one", "two", "three", "four")
 cb=Combobox(window, values=data)
 cb.place(x=60, y=170)
+
+lb=Listbox(window, height=5, selectmode='multiple')
+for num in data:
+    lb.insert(END,num)
+lb.place(x=250, y=150)
 
 window.mainloop()
