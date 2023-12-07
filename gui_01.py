@@ -3,8 +3,15 @@
 from tkinter import *
 from tkinter.ttk import Combobox
 
+qtd_clicks = 0
+
 def clicked():
     lbl.configure(text="você clicou ;)")
+
+def botaoClicado(par):
+    global qtd_clicks 
+    qtd_clicks += 1
+    lbl.configure(text="você clicou " + str(qtd_clicks) + " vezes no botão")    
 
 window = Tk()
 window.title("Bem-vindo, NERD B)")
@@ -20,8 +27,10 @@ lbl.place(x=60, y=10)
 txtfld=Entry(window, text="Isso é uma caixa de entrada po", bd=2)
 txtfld.place(x=80, y=150)
 
-btn = Button(window, text="me clica por favor", command=clicked)
+## btn = Button(window, text="me clica por favor", command=clicked)
+btn = Button(window, text="me clica por favor")
 btn.place(x=200, y=350)
+btn.bind("<Button-1>", botaoClicado)
 
 data = ("one", "two", "three", "four")
 cb=Combobox(window, values=data)
